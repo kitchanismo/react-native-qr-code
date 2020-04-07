@@ -19,15 +19,6 @@ const Passers = props => {
 
   const qrIcon = code => <QRCode size={50} value={code}></QRCode>;
 
-  const DetailsIcon = () => (
-    <Icon
-      style={{
-        color: 'rgb(255, 61, 113)',
-      }}
-      name="stop"
-    />
-  );
-
   const handleDelete = id => {
     Alert.alert(
       'Quarantine Pass',
@@ -76,9 +67,9 @@ const Passers = props => {
         paddingVertical: 15,
         backgroundColor: 'transparent',
       }}
-      icon={() => qrIcon(item.id)}
+      icon={() => qrIcon(item.code)}
       title={`${item.name.toUpperCase()}`}
-      description={`ID: ${item.id}`}
+      description={`Code: ${item.code}`}
       accessory={style => renderItemAccessory(style, item)}
     />
   );

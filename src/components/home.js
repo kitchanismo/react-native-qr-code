@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, {useState, useEffect} from 'react';
 
 import {PasserContext} from '../context';
 import SvgUri from 'react-native-svg-uri-reborn';
@@ -9,6 +9,7 @@ import {Button, useTheme, Layout, Text} from '@ui-kitten/components';
 
 const HomeScreen = props => {
   const theme = useTheme();
+
   return (
     <View style={styles.container}>
       <View style={styles.logo}>

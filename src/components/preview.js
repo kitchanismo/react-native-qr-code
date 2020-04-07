@@ -11,7 +11,7 @@ export default ({route, navigation}) => {
 
   const header = () => (
     <React.Fragment>
-      <QRCode value={item.id} size={350}></QRCode>
+      <QRCode value={item.code} size={350}></QRCode>
       <Text style={styles.headerText} category="h4">
         {item.name.toUpperCase()}
       </Text>
@@ -20,7 +20,6 @@ export default ({route, navigation}) => {
 
   const handleAdd = () => {
     onAdd(item);
-    alert('Saved');
     navigation.push('Passers');
   };
 
@@ -40,7 +39,7 @@ export default ({route, navigation}) => {
       <BackHeader title="Preview" navigate="Generator" />
       <ScrollView contentContainerStyle={{marginTop: 30}}>
         <Card header={header} footer={footer}>
-          <Text category="s1">{`ID: ${item.id}`}</Text>
+          <Text category="s1">{`Code: ${item.code}`}</Text>
           <Text category="s1">{`Address: ${item.address}`}</Text>
         </Card>
       </ScrollView>

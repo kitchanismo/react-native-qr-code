@@ -1,36 +1,27 @@
 import React, {useState} from 'react';
 
 import {PasserContext} from './context';
+import {usePassers} from './services/passers';
 
 const PasserProvider = props => {
-  const [items, setItems] = useState([]);
+  const {passers, setPassers, onAdd, onDelete} = usePassers();
 
-  const handleAdd = item => {
-    if (hasItem(item.id)) {
-      alert('Duplicate!');
-      return false;
-    } else {
-      setItems([...items, item]);
-      return true;
-    }
-  };
+  // const handleDelete = code => {
+  //   setPassers(passers.filter(item => item.code !== code));
+  // };
 
-  const handleDelete = id => {
-    setItems(items.filter(item => item.id !== id));
-  };
+  const hasItem = code => passers.filter(item => item.code === code).length > 0;
 
-  const hasItem = id => items.filter(item => item.id === id).length > 0;
-
-  const handleCheck = id => {
-    return hasItem(id);
+  const handleCheck = code => {
+    return hasItem(code);
   };
   return (
     <PasserContext.Provider
       value={{
-        items,
+        items: passers,
         onCheck: handleCheck,
-        onAdd: handleAdd,
-        onDelete: handleDelete,
+        onAdd,
+        onDelete,
       }}>
       {props.children}
     </PasserContext.Provider>

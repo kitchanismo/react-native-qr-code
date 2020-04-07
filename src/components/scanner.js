@@ -12,21 +12,12 @@ const ScanScreen = props => {
 
   const [backHome, setBackHome] = useState(false);
 
-  const handleCheck = item => {
-    if (backHome) return;
+  const onSuccess = ({data}) => {
+    console.log('scanned');
 
-    props.navigation.replace('Valid', item);
-  };
-
-  const handleInvalid = () => {
-    if (backHome) return;
+    if (onCheck(data)) return props.navigation.replace('Valid', data);
 
     props.navigation.replace('Invalid');
-  };
-
-  const onSuccess = ({data}) => {
-    if (onCheck(data)) handleCheck(data);
-    else handleInvalid();
   };
 
   const toHome = () => {

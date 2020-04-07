@@ -8,13 +8,13 @@ import {PasserContext} from '../context';
 
 export default ({route, navigation}) => {
   const {items} = useContext(PasserContext);
-  const id = route.params;
+  const code = route.params;
 
-  const getItem = items.filter(item => item.id === id)[0];
+  const getItem = items.filter(item => item.code === code)[0];
 
   const header = () => (
     <React.Fragment>
-      <QRCode value={id} size={350}></QRCode>
+      <QRCode value={code} size={350}></QRCode>
       <Text style={styles.headerText} category="h4">
         {id}
       </Text>

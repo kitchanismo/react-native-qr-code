@@ -7,12 +7,12 @@ import uid from 'shortid';
 import BackHeader from './common/back-header';
 
 const Generator = ({navigation}) => {
-  const [id, setID] = useState('');
+  const [code, setCode] = useState('');
   const [name, setName] = useState('');
   const [address, setAddress] = useState('');
 
   useEffect(() => {
-    setID(uid.generate());
+    setCode(uid.generate());
   }, []);
 
   const handlePreview = () => {
@@ -20,7 +20,7 @@ const Generator = ({navigation}) => {
       return;
     }
 
-    navigation.navigate('Preview', {id, name, address});
+    navigation.navigate('Preview', {code, name, address});
   };
 
   return (
@@ -30,14 +30,14 @@ const Generator = ({navigation}) => {
         <View style={styles.container}></View>
         <View style={styles.form}>
           <Text category="s1" style={styles.text}>
-            ID
+            CODE
           </Text>
 
           <Input
             style={styles.input}
             size="medium"
-            onChangeText={text => setID(text)}
-            value={id}
+            onChangeText={text => setCode(text)}
+            value={code}
           />
           <Text category="s1" style={styles.text}>
             FULLNAME

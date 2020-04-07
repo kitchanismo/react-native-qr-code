@@ -10,7 +10,7 @@ export default ({route}) => {
 
   const header = () => (
     <React.Fragment>
-      <QRCode value={item.id} size={350}></QRCode>
+      <QRCode value={item.code} size={350}></QRCode>
       <Text style={styles.headerText} category="h4">
         {item.name.toUpperCase()}
       </Text>
@@ -21,7 +21,7 @@ export default ({route}) => {
     <React.Fragment>
       <BackHeader title="Information Details" navigate="Passers" />
       <Card style={{marginTop: 30}} header={header}>
-        <Text category="s1">{`ID: ${item.id}`}</Text>
+        <Text category="s1">{`Code: ${item.code}`}</Text>
         <Text category="s1">{`Address: ${item.address}`}</Text>
       </Card>
     </React.Fragment>
