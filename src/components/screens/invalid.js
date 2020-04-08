@@ -1,6 +1,6 @@
 import React from 'react';
 import {View, Button, StyleSheet} from 'react-native';
-import BackHeader from './common/back-header';
+import BackHeader from '../common/back-header';
 import {Text} from '@ui-kitten/components';
 
 const Result = ({route}) => {

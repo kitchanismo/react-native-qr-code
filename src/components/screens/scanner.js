@@ -4,7 +4,7 @@ import {StyleSheet, View, TouchableOpacity} from 'react-native';
 
 import QRCodeScanner from 'react-native-qrcode-scanner';
 
-import {PasserContext} from '../context';
+import {PasserContext} from '../../context';
 
 const ScanScreen = props => {
   const {onCheck} = useContext(PasserContext);

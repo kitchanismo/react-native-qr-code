@@ -19,31 +19,19 @@ export function usePassers() {
     });
   }, []);
 
-  const onAdd = item => {
-    ref
-      .add(item)
-      .then(() => alert('Successfully saved!'))
-      .catch(error => alert('Error saving: ', error));
+  const onAdd = async item => {
+    await ref.add(item);
   };
 
-  const onDelete = id => {
-    ref
-      .doc(id)
-      .delete()
-      .then(() => alert('Successfully deleted!'))
-      .catch(error => alert('Error deleting: ', error));
+  const onDelete = async id => {
+    await ref.doc(id).delete();
   };
 
-  const onUpdate = (id, item) => {
-    ref
-      .doc(id)
-      .update(item)
-      .then(() => {
-        alert('Passer updated!');
-      });
+  const onUpdate = async (id, item) => {
+    await ref.doc(id).update(item);
   };
 
   const onCheck = code => passers.filter(item => item.code === code).length > 0;
 
-  return {passers, onAdd, onDelete, onUpdate, onCheck};
+  return {passers, onAdd, onDelete, onUpdate, onCheck, onPassed: onUpdate};
 }

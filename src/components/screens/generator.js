@@ -4,7 +4,7 @@ import {Button, Input, Text} from '@ui-kitten/components';
 import {View, StyleSheet, ScrollView} from 'react-native';
 
 import uid from 'shortid';
-import BackHeader from './common/back-header';
+import BackHeader from '../common/back-header';
 
 const Generator = ({navigation}) => {
   const [code, setCode] = useState('');

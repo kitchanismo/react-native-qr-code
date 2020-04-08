@@ -3,14 +3,23 @@ import React, {useState, useContext} from 'react';
 import {Button, Input, Text} from '@ui-kitten/components';
 import {View, StyleSheet, ScrollView} from 'react-native';
 
-import BackHeader from './common/back-header';
-import {PasserContext} from '../context';
+import BackHeader from '../common/back-header';
+import {PasserContext} from '../../context';
 
 const Edit = ({route, navigation}) => {
   const {onUpdate} = useContext(PasserContext);
   const item = route.params;
 
   const [data, setData] = useState(item);
+
+  const handleUpdate = () => {
+    try {
+      onUpdate(data.id, data);
+      alert('Updated');
+    } catch (error) {
+      alert('Error');
+    }
+  };
 
   return (
     <React.Fragment>
@@ -49,10 +58,7 @@ const Edit = ({route, navigation}) => {
 
           <View style={styles.btns}>
             <View style={styles.btn}>
-              <Button
-                onPress={() => onUpdate(data.id, data)}
-                status="danger"
-                size="medium">
+              <Button onPress={handleUpdate} status="danger" size="medium">
                 UPDATE
               </Button>
             </View>

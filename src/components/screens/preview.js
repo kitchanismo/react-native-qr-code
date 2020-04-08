@@ -2,8 +2,8 @@ import React, {useContext} from 'react';
 import {ScrollView, View, StyleSheet} from 'react-native';
 import {Card, Text, Button} from '@ui-kitten/components';
 import QRCode from 'react-native-qrcode-svg';
-import {PasserContext} from '../context';
-import BackHeader from './common/back-header';
+import {PasserContext} from '../../context';
+import BackHeader from '../common/back-header';
 
 export default ({route, navigation}) => {
   const {onAdd} = useContext(PasserContext);
@@ -18,9 +18,14 @@ export default ({route, navigation}) => {
     </React.Fragment>
   );
 
-  const handleAdd = () => {
-    onAdd(item);
-    navigation.push('Passers');
+  const handleAdd = async () => {
+    try {
+      await onAdd(item);
+      alert('Added');
+      navigation.push('Passers');
+    } catch (error) {
+      alert('Error');
+    }
   };
 
   const footer = () => (

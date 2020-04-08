@@ -1,5 +1,5 @@
 import React, {useContext} from 'react';
-import {PasserContext} from '../context';
+import {PasserContext} from '../../context';
 
 import {
   List,
@@ -10,7 +10,7 @@ import {
 } from '@ui-kitten/components';
 
 import QRCode from 'react-native-qrcode-svg';
-import BackHeader from './common/back-header';
+import BackHeader from '../common/back-header';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import {Alert} from 'react-native';
 
@@ -28,7 +28,17 @@ const Passers = props => {
           text: 'Cancel',
           style: 'cancel',
         },
-        {text: 'OK', onPress: () => onDelete(id)},
+        {
+          text: 'OK',
+          onPress: () => {
+            try {
+              onDelete(id);
+              alert('Deleted');
+            } catch (error) {
+              alert('Error');
+            }
+          },
+        },
       ],
       {cancelable: false},
     );

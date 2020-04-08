@@ -3,14 +3,19 @@ import {StyleSheet, View} from 'react-native';
 import {Card, Text, Button} from '@ui-kitten/components';
 import QRCode from 'react-native-qrcode-svg';
 
-import BackHeader from './common/back-header';
-import {PasserContext} from '../context';
+import BackHeader from '../common/back-header';
+import {PasserContext} from '../../context';
 
 export default ({route, navigation}) => {
-  const {passers} = useContext(PasserContext);
+  const {passers, onPassed} = useContext(PasserContext);
   const code = route.params;
 
   const getItem = passers.filter(item => item.code === code)[0];
+
+  const handlePassed = () => {
+    onPassed(getItem.id, {onPassed: new Date(Date.now())});
+    navigation.navigate('Home');
+  };
 
   const header = () => (
     <React.Fragment>
@@ -25,10 +30,10 @@ export default ({route, navigation}) => {
     <View style={styles.footerContainer}>
       <Button
         status="danger"
-        onPress={() => navigation.navigate('Home')}
+        onPress={handlePassed}
         style={styles.footerControl}
         size="medium">
-        VALIDATE
+        PASSED
       </Button>
     </View>
   );

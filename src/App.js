@@ -8,19 +8,19 @@ import {mapping, light as lightTheme} from '@eva-design/eva';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import PasserProvider from './provider';
-import Scanner from './components/scanner';
-import Home from './components/home';
+import Scanner from './components/screens/scanner';
+import Home from './components/screens/home';
 
-import Generator from './components/generator';
-import Invalid from './components/invalid';
+import Generator from './components/screens/generator';
+import Invalid from './components/screens/invalid';
 
 import {MaterialIconsPack} from './material-icons';
 import withLayout from './withLayout';
-import Passers from './components/passers';
-import Preview from './components/preview';
-import Details from './components/details';
-import Valid from './components/valid';
-import Edit from './components/edit';
+import Passers from './components/screens/passers';
+import Preview from './components/screens/preview';
+import Details from './components/screens/details';
+import Valid from './components/screens/valid';
+import Edit from './components/screens/edit';
 
 const Stack = createStackNavigator();
 

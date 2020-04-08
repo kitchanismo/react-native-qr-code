@@ -3,7 +3,7 @@ import {StyleSheet} from 'react-native';
 import {Card, Text} from '@ui-kitten/components';
 import QRCode from 'react-native-qrcode-svg';
 
-import BackHeader from './common/back-header';
+import BackHeader from '../common/back-header';
 
 export default ({route}) => {
   const item = route.params;
@@ -23,6 +23,11 @@ export default ({route}) => {
       <Card style={{marginTop: 30}} header={header}>
         <Text category="s1">{`Code: ${item.code}`}</Text>
         <Text category="s1">{`Address: ${item.address}`}</Text>
+        <Text category="s1">{`Passed Date: ${
+          item.onPassed
+            ? new Date(item.onPassed.toDate()).toLocaleDateString()
+            : ''
+        }`}</Text>
       </Card>
     </React.Fragment>
   );

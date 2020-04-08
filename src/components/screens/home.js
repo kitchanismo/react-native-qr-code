@@ -1,7 +1,5 @@
 import React, {useState, useEffect} from 'react';
 
-import {PasserContext} from '../context';
-import SvgUri from 'react-native-svg-uri-reborn';
 import Logo from '../assets/logo.svg';
 import Wavy from '../assets/wavy.svg';
 import {View, ScrollView, StyleSheet, Dimensions} from 'react-native';
