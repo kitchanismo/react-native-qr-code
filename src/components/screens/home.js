@@ -1,7 +1,8 @@
 import React, {useState, useEffect} from 'react';
 
-import Logo from '../assets/logo.svg';
-import Wavy from '../assets/wavy.svg';
+import Logo from '../../assets/logo.svg';
+import Wavy from '../../assets/wavy.svg';
+
 import {View, ScrollView, StyleSheet, Dimensions} from 'react-native';
 import {Button, useTheme, Layout, Text} from '@ui-kitten/components';
 
