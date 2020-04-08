@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 
-import {PasserContext} from './context';
-import {usePassers} from './services/passers';
+import {PasserContext} from '../context';
+import usePassers from '../services/usePassers';
 
 const PasserProvider = props => {
   const state = usePassers();

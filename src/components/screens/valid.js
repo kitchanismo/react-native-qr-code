@@ -43,8 +43,10 @@ export default ({route, navigation}) => {
       <BackHeader title="Information Details" navigate="Home" />
 
       <Card style={{marginTop: 30}} header={header} footer={footer}>
-        <Text category="h6">{`Name: ${getItem.name}`}</Text>
-        <Text category="h6">{`Address: ${getItem.address}`}</Text>
+        <Text category="h6">{`Name: ${getItem ? getItem.name : ''}`}</Text>
+        <Text category="h6">{`Address: ${
+          getItem ? getItem.address : ''
+        }`}</Text>
       </Card>
     </React.Fragment>
   );

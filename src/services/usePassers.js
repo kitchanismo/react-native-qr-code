@@ -1,7 +1,7 @@
 import firestore from '@react-native-firebase/firestore';
 import React, {useState, useEffect} from 'react';
 
-export function usePassers() {
+export default function usePassers() {
   const ref = firestore().collection('passers');
   const [passers, setPassers] = useState([]);
 
