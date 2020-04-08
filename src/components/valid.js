@@ -7,16 +7,16 @@ import BackHeader from './common/back-header';
 import {PasserContext} from '../context';
 
 export default ({route, navigation}) => {
-  const {items} = useContext(PasserContext);
+  const {passers} = useContext(PasserContext);
   const code = route.params;
 
-  const getItem = items.filter(item => item.code === code)[0];
+  const getItem = passers.filter(item => item.code === code)[0];
 
   const header = () => (
     <React.Fragment>
       <QRCode value={code} size={350}></QRCode>
       <Text style={styles.headerText} category="h4">
-        {id}
+        {code}
       </Text>
     </React.Fragment>
   );

@@ -15,7 +15,7 @@ import {TouchableOpacity} from 'react-native-gesture-handler';
 import {Alert} from 'react-native';
 
 const Passers = props => {
-  const {items, onDelete} = useContext(PasserContext);
+  const {passers, onDelete} = useContext(PasserContext);
 
   const qrIcon = code => <QRCode size={50} value={code}></QRCode>;
 
@@ -33,9 +33,22 @@ const Passers = props => {
       {cancelable: false},
     );
   };
+
   const renderItemAccessory = (style, item) => (
     <React.Fragment>
-      <TouchableOpacity onPress={handleDelete.bind(this, item.id)}>
+      <TouchableOpacity onPress={() => props.navigation.push('Edit', item)}>
+        <Icon
+          style={{
+            width: 40,
+            height: 40,
+            color: 'orange',
+          }}
+          name="edit"
+        />
+      </TouchableOpacity>
+      <TouchableOpacity
+        style={{marginLeft: 10}}
+        onPress={handleDelete.bind(this, item.id)}>
         <Icon
           style={{
             width: 40,
@@ -93,7 +106,7 @@ const Passers = props => {
         title="Passer List"
         navigate="Home"
       />
-      <List data={items} renderItem={renderItem} />
+      <List data={passers} renderItem={renderItem} />
     </React.Fragment>
   );
 };

@@ -33,5 +33,17 @@ export function usePassers() {
       .then(() => alert('Successfully deleted!'))
       .catch(error => alert('Error deleting: ', error));
   };
-  return {passers, onAdd, setPassers, onDelete};
+
+  const onUpdate = (id, item) => {
+    ref
+      .doc(id)
+      .update(item)
+      .then(() => {
+        alert('Passer updated!');
+      });
+  };
+
+  const onCheck = code => passers.filter(item => item.code === code).length > 0;
+
+  return {passers, onAdd, onDelete, onUpdate, onCheck};
 }

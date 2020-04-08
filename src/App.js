@@ -20,6 +20,7 @@ import Passers from './components/passers';
 import Preview from './components/preview';
 import Details from './components/details';
 import Valid from './components/valid';
+import Edit from './components/edit';
 
 const Stack = createStackNavigator();
 
@@ -42,6 +43,7 @@ const App = () => {
               <Stack.Screen name="Preview" component={withLayout(Preview)} />
               <Stack.Screen name="Details" component={withLayout(Details)} />
               <Stack.Screen name="Valid" component={withLayout(Valid)} />
+              <Stack.Screen name="Edit" component={withLayout(Edit)} />
             </Stack.Navigator>
           </PasserProvider>
         </ApplicationProvider>
